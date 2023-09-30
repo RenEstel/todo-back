@@ -21,6 +21,7 @@
     </properties>
 
     <modules>
+        <module>todo-back-app</module>
         <module>todo-back-db</module>
     </modules>
 
