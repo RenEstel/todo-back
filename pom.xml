@@ -10,13 +10,20 @@
     </parent>
     <groupId>io.github.renestel</groupId>
     <artifactId>todo-back</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>01.000.00-SNAPSHOT</version>
     <name>todo-back</name>
     <description>todo-back</description>
+    <packaging>pom</packaging>
+
     <properties>
         <java.version>17</java.version>
         <kotlin.version>1.8.22</kotlin.version>
     </properties>
+
+    <modules>
+        <module>todo-back-db</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,10 +45,10 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.liquibase</groupId>-->
+<!--            <artifactId>liquibase-core</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -54,6 +61,13 @@
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
